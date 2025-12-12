@@ -1,11 +1,218 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  line-height: 1;
-}
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   text-decoration: none;
+   line-height: 1;
+ }
 
-form {
-  width: 100%;
-  max-width: 600px;
-}
+ body {
+   font-family: Arial, Helvetica, sans-serif;
+   background-color: white;
+   color: #444;
+ }
+
+ h1,
+ h2 {
+   letter-spacing: 3px;
+ }
+
+ h1 {
+   font-size: 3rem;
+   margin: 0 5% 0 3%;
+ }
+
+ h2 {
+  font-size: 2.8rem;
+ }
+
+ h1,
+ h2,
+ /* .item,
+ .item a, */
+ .quote,
+ footer a,
+ .foot-text {
+   text-align: center;
+ }
+
+ a {
+   color: #444;
+   transition: 0.8s;
+ }
+
+ p {
+   line-height: 150%;
+   padding: 10px;
+ }
+
+ .comment {
+   background-color: #dcdcdc;
+   padding: 1em;
+   border-radius: 12px;
+   border: 3px solid silver;
+ }
+
+ form {
+   padding: 6%;
+ }
+
+ form,
+ .comment {
+   margin: 0 auto 16px auto;
+   max-width: 800px;
+ }
+
+ input,
+ textarea {
+   padding: 8px 8px 8px 15px;
+   width: 100%;
+ }
+
+
+ /* STYLES FROM WEEK 1 ASSIGNMENT, KEEPING DESIGN CONSISTENT */
+ header,
+ header nav,
+ footer nav {
+   display: flex;
+ }
+
+ header {
+   width: 100%;
+   padding: 20px;
+   justify-content: space-between;
+ }
+
+ header
+ /* ,.item */
+ {
+   background-color: red;
+ }
+
+ nav a,
+ .quote
+ /* , .item a */
+ {
+   font-size: 120%;
+ }
+
+ header nav,
+ footer nav {
+   gap: 6px;
+ }
+
+ header,
+ footer nav {
+   align-items: center;
+   align-content: center;
+ }
+
+ footer nav {
+   width: 80%;
+   margin: auto;
+   justify-content: space-around;
+ }
+
+ nav a,
+ .tagline,
+ footer {
+   background-color: silver;
+   padding: 16px;
+ }
+
+ .tagline {
+   margin-bottom: 50px;
+ }
+
+ header a:hover {
+   text-decoration: underline;
+ }
+
+ footer a
+ /* ,.item a */
+ {
+   padding: 1em 2%;
+   background-color: #ccc;
+ }
+
+ footer a {
+   flex: 1;
+ }
+
+ footer a:hover,
+ .item a:hover {
+   background-color: #eee;
+ }
+
+ section {
+   padding: 0 2% 5% 2%;
+   border-bottom: 1px solid #ddd;
+ }
+
+ .quote,
+ input,
+ textarea {
+   font-family: monospace;
+   font-style: italic;
+ }
+
+ /* .item {
+   position: relative;
+   width: 50%;
+   margin: 5%;
+   padding: 2%;
+   box-shadow: 0 0 35px #555;
+ } */
+
+ /* .item img {
+   max-width: 400px;
+   margin: 30px 0;
+ }
+
+ .item-txt {
+   position: absolute;
+   left: 0;
+   right: 0;
+   bottom: 22%;
+ }
+
+ .item a {
+   margin: auto;
+   display: block;
+   width: calc(100%/2);
+ } */
+
+ .foot-text {
+   margin: 3em 0 2em 0;
+   text-align: center;
+ }
+
+ .round {
+   border-radius: 12px;
+ }
+
+ @media screen and (max-width: 600px) {
+   header {
+     flex-direction: column;
+   }
+
+   h1,
+   h2 {
+     margin: 0 3% 1em 3%;
+   }
+
+   /* .item {
+     width: 90%;
+     padding: 5%;
+   } */
+
+   footer nav {
+     width: 100%;
+   }
+ }
+
+ @media screen and (max-width: 900px) {
+   footer nav {
+     width: 100%;
+   }
+ }
