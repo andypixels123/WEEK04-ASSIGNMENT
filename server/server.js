@@ -10,10 +10,6 @@ app.listen(PORT, () => {
     console.info(`Server running, port ${PORT}`);
 });
 
-// app.get("/", (req, res)=> {
-//   res.json({ message: "Guestbook Comments" });
-// });
-
 // Create data using form values from client, send to database
 app.post("/comments", (req, res) => {
     // receive the data from the client
@@ -23,7 +19,9 @@ app.post("/comments", (req, res) => {
     // we use parameters in SQL to protect the data and to reuse the query
     const query = db.query(
         `INSERT INTO gbComms (username, comment) VALUES ($1, $2)`,
+        // `INSERT INTO gbComms (username, comment) VALUES ($1, $2, $3)`,
         [newComm.userName, newComm.userComment]
+        // [newComm.userName, newComm.userComment, newComm.date]
     );
     res.json({ status: "success", values: newComm });
 });

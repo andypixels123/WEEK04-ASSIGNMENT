@@ -1,13 +1,20 @@
 console.log("hello world");
 const commForm = document.getElementById("commForm");
 const gbkComm = document.getElementById("guestbook-comments");
+// const d = new Date();
+// const y = d.getFullYear();
+// const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+// const m = months[d.getMonth()];
+// const dateValue = document.getElementById("date");
+// dateValue.value = `${m} ${y}`;
+
 window.addEventListener("load", getData);
 
 function guestBook(e) {
     e.preventDefault();
     const formDataTemplate = new FormData(commForm);
     const formValues = Object.fromEntries(formDataTemplate);
-    console.log(`this is form values - ${formValues}`);
+    console.log(`form values - ${formValues}`);
 
     // Send form data in a request to the server
     // we will use the url where our server is located --> http://localhost:8080/comments
@@ -27,8 +34,6 @@ function guestBook(e) {
 }
 commForm.addEventListener("submit", guestBook);
 
-// 
-
 // Get API DATA here
 // Application Programming Interface
 async function getData() { // create 'comments' elements from API object
@@ -43,8 +48,10 @@ async function getData() { // create 'comments' elements from API object
         let commId = json[i].id;
         let commName = json[i].username;
         let commText = json[i].comment;
+        // let commDate = json[i].date;
         commWrap.className = "comment";
-        commWrap.innerHTML = `<h3>${commName}</h3><br><p>${commText}</p>`;
+        commWrap.innerHTML = `<h3>${commName}</h3><p>${commText}</p>`;
+        // commWrap.innerHTML = `<h3>${commName}</h3><p>${commText}</p><p>${commDate}</p>`;
         gbkComm.appendChild(commWrap);
         i--;
     }
