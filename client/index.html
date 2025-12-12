@@ -13,9 +13,9 @@
   <header>
     <h1>WHEN PIGS FLY</h1>
     <nav>
-      <a class="round" href="#">home</a>
-      <a class="round" href="#">contact</a>
-      <a class="round" href="#">about</a>
+      <a class="round" href="#" title="home page">home</a>
+      <a class="round" href="#" title="email contact page">contact</a>
+      <a class="round" href="#" title="about us info">about</a>
     </nav>
   </header>
   <main>
@@ -24,27 +24,30 @@
     </div>
 
     <h2>Guestbook</h2>
-    <form id="commForm">
-      <label for="userName">name</label>
-      <input name="userName" type="text" placeholder="first and last name" required>
-      <label for="userName">comment</label>
-      <textarea name="userComment" type="text" placeholder="your message" rows="8" required></textarea>
-      <!-- <input id="date" name="date" type="hidden"> -->
-      <button type="submit">submit</button>
-    </form>
-    <section id="guestbookComms"><button id="reload">Update</button></section>
+    <section>
+      <form id="commForm">
+        <label for="userName">name</label>
+        <input name="userName" type="text" placeholder="first and last name" required>
+        <label for="userName">comment</label>
+        <textarea name="userComment" type="text" placeholder="your message" rows="8" required></textarea>
+        <button type="submit" title="submit form button">submit</button>
+      </form>
+    </section>
+    <section id="guestbookComms">
+      <button id="reload" title="update comments button">Update</button>
+    </section>
   </main>
   <footer>
     <nav>
-      <a class="round" href="" title="">cOol</a>
-      <a class="round" href="" title="">coDe</a>
-      <a class="round" href="" title="">grOup</a>
-      <a class="round" href="" title="">pAnic</a>
-      <a class="round" href="" title="">pigS</a>
+      <a class="round" href="#" title="cool page">cOol</a>
+      <a class="round" href="#" title="code page">coDe</a>
+      <a class="round" href="#" title="group page">grOup</a>
+      <a class="round" href="#" title="panic page">pAnic</a>
+      <a class="round" href="#" title="pigs page">pigS</a>
     </nav>
     <p class="foot-text">buiLt frOm eXperience. andRew birCh 2025</p>
   </footer>
-  <a href="#top" id="topBtn" title="Go to top">Top</a>
+  <a href="#top" id="topBtn" title="return to top">Top</a>
 </body>
 
 </html>

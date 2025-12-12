@@ -28,12 +28,11 @@
 
  h2 {
    font-size: 2.8rem;
+   margin: 0 0 5% 0;
  }
 
  h1,
  h2,
- /* .item,
- .item a, */
  .quote,
  footer a,
  .foot-text {
@@ -50,32 +49,42 @@
    padding: 10px;
  }
 
+ section {
+   padding: 0 5% 10% 5%;
+ }
+
  #guestbookComms {
    margin: auto;
-   max-width: 800px;
  }
 
  .comment {
+   width: 100%;
    background-color: #dcdcdc;
    padding: 1em;
    border-radius: 12px;
    border: 3px solid silver;
  }
 
- form {
-   padding: 75px 10% 100px 10%;
+ form,
+ .comment,
+ #guestbookComms {
+   max-width: 800px;
  }
 
  form,
  .comment {
    margin: 16px auto 0 auto;
-   max-width: 800px;
+ }
+
+ form {
+   margin-top: 0;
  }
 
  input,
  textarea {
-   padding: 8px 8px 8px 15px;
+   font-size: 150%;
    width: 100%;
+   padding: 8px 8px 8px 15px;
  }
 
  input,
@@ -87,7 +96,9 @@
    padding: 15px 30px;
  }
 
- /* STYLES FROM WEEK 1 ASSIGNMENT, KEEPING DESIGN CONSISTENT */
+ /* STYLES BELOW FROM WEEK 1 ASSIGNMENT,
+     KEEPING DESIGN CONSISTENT */
+
  header,
  header nav,
  footer nav {
@@ -98,20 +109,11 @@
    width: 100%;
    padding: 20px;
    justify-content: space-between;
- }
-
- header
-
- /* ,.item */
-   {
    background-color: red;
  }
 
  nav a,
- .quote
-
- /* , .item a */
-   {
+ .quote {
    font-size: 120%;
  }
 
@@ -147,10 +149,7 @@
    text-decoration: underline;
  }
 
- footer a
-
- /* ,.item a */
-   {
+ footer a {
    padding: 1em 2%;
    background-color: #ccc;
  }
@@ -164,11 +163,6 @@
    background-color: #eee;
  }
 
- section {
-   padding: 0 5% 10% 5%;
-   border-bottom: 1px solid #ddd;
- }
-
  .quote,
  input,
  textarea {
@@ -176,35 +170,8 @@
    font-style: italic;
  }
 
- /* .item {
-   position: relative;
-   width: 50%;
-   margin: 5%;
-   padding: 2%;
-   box-shadow: 0 0 35px #555;
- } */
-
- /* .item img {
-   max-width: 400px;
-   margin: 30px 0;
- }
-
- .item-txt {
-   position: absolute;
-   left: 0;
-   right: 0;
-   bottom: 22%;
- }
-
- .item a {
-   margin: auto;
-   display: block;
-   width: calc(100%/2);
- } */
-
  .foot-text {
    margin: 3em 0 2em 0;
-   text-align: center;
  }
 
  .round {
@@ -212,8 +179,8 @@
  }
 
 
-/* Button styling from W3 schools, modified slightly */
-/* Added scroll-behaviour: smooth; in css instead of using W3 Schools 'scroll to top' function */
+ /* Button styling from W3 schools, modified slightly */
+ /* Added scroll-behaviour: smooth; in css instead of using W3 Schools 'scroll to top' function */
  #topBtn {
    display: none;
    position: fixed;
@@ -234,10 +201,6 @@
    background-color: #555;
  }
 
-
-
-
-
  @media screen and (max-width: 600px) {
    header {
      flex-direction: column;
@@ -247,11 +210,6 @@
    h2 {
      margin: 0 3% 1em 3%;
    }
-
-   /* .item {
-     width: 90%;
-     padding: 5%;
-   } */
 
    footer nav {
      width: 100%;
