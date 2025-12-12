@@ -6,6 +6,8 @@
    line-height: 1;
  }
 
+ 	html { scroll-behavior: smooth; }
+
  body {
    font-family: Arial, Helvetica, sans-serif;
    background-color: white;
@@ -23,7 +25,7 @@
  }
 
  h2 {
-  font-size: 2.8rem;
+   font-size: 2.8rem;
  }
 
  h1,
@@ -46,6 +48,11 @@
    padding: 10px;
  }
 
+ #guestbookComms {
+   margin: auto;
+   max-width: 800px;
+ }
+
  .comment {
    background-color: #dcdcdc;
    padding: 1em;
@@ -59,7 +66,7 @@
 
  form,
  .comment {
-   margin: 0 auto 16px auto;
+   margin: 16px auto 0 auto;
    max-width: 800px;
  }
 
@@ -69,6 +76,14 @@
    width: 100%;
  }
 
+ input,
+ textarea {
+   margin: 16px 0 16px 0;
+ }
+
+ button {
+   padding: 15px 30px;
+ }
 
  /* STYLES FROM WEEK 1 ASSIGNMENT, KEEPING DESIGN CONSISTENT */
  header,
@@ -84,15 +99,17 @@
  }
 
  header
+
  /* ,.item */
- {
+   {
    background-color: red;
  }
 
  nav a,
  .quote
+
  /* , .item a */
- {
+   {
    font-size: 120%;
  }
 
@@ -129,8 +146,9 @@
  }
 
  footer a
+
  /* ,.item a */
- {
+   {
    padding: 1em 2%;
    background-color: #ccc;
  }
@@ -145,7 +163,7 @@
  }
 
  section {
-   padding: 0 2% 5% 2%;
+   padding: 0 2% 10% 2%;
    border-bottom: 1px solid #ddd;
  }
 
@@ -190,6 +208,32 @@
  .round {
    border-radius: 12px;
  }
+
+
+
+ #topBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#topBtn:hover {
+  background-color: #555;
+}
+
+
+
+
 
  @media screen and (max-width: 600px) {
    header {

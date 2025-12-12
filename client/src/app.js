@@ -1,29 +1,28 @@
-console.log("hello world");
+// console.log("is this working?");
 const commForm = document.getElementById("commForm");
-const gbkComm = document.getElementById("guestbook-comments");
-// const d = new Date();
-// const y = d.getFullYear();
-// const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-// const m = months[d.getMonth()];
-// const dateValue = document.getElementById("date");
-// dateValue.value = `${m} ${y}`;
-
-window.addEventListener("load", getData);
+const gbkComm = document.getElementById("guestbookComms");
+const reload = document.getElementById("reload");
+reload.addEventListener("click", reLoad);
+const d = new Date();
+const y = d.getFullYear();
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const m = months[d.getMonth()];
 
 function guestBook(e) {
     e.preventDefault();
     const formDataTemplate = new FormData(commForm);
-    const formValues = Object.fromEntries(formDataTemplate);
-    console.log(`form values - ${formValues}`);
+    let formValues = Object.fromEntries(formDataTemplate);
+    formValues.date = `${m} ${y}`;
+    // console.log(`form values - ${formValues}`);
+    commForm.reset();// clear form
 
-    // Send form data in a request to the server
-    // we will use the url where our server is located --> http://localhost:8080/comments
+    // send form data in a request to the server
+    // use url where server is located --> http://localhost:8080/comments
     // (make sure you are fetching the specific POST route that will process the form data)
-    // we will use fetch to connect our client with the server
+    // use fetch to connect client with server
 
     fetch("http://localhost:8080/comments", { // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
         // fetch("https://week04-assignment-2p2p.onrender.com", {
-
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -32,6 +31,7 @@ function guestBook(e) {
     });
     console.log("success 1");
 }
+
 commForm.addEventListener("submit", guestBook);
 
 // Get API DATA here
@@ -48,15 +48,33 @@ async function getData() { // create 'comments' elements from API object
         let commId = json[i].id;
         let commName = json[i].username;
         let commText = json[i].comment;
-        // let commDate = json[i].date;
+        let commDate = json[i].date;
         commWrap.className = "comment";
-        commWrap.innerHTML = `<h3>${commName}</h3><p>${commText}</p>`;
-        // commWrap.innerHTML = `<h3>${commName}</h3><p>${commText}</p><p>${commDate}</p>`;
+        // commWrap.innerHTML = `<h3>${commName}</h3><p>${commText}</p>`;
+        commWrap.innerHTML = `<h3>${commName}</h3><p>${commText}</p><p>Comment ${commId} - ${commDate}</p>`;
         gbkComm.appendChild(commWrap);
         i--;
     }
 }
 
+getData();
+
+function reLoad() {
+    location.reload();
+}
+
+
+const topBtn = document.getElementById("topBtn");
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    topBtn.style.display = "block";
+  } else {
+    topBtn.style.display = "none";
+  }
+}
+
 // todo: clear input fields when form is submitted
-// todo: create link to add a comment and show form?
-// todo: add date to comment
+// todo: create BUTTON to add a comment and show form?
+// todo: add date to comment --- DONE

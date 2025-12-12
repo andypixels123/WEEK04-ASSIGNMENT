@@ -18,10 +18,10 @@ app.post("/comments", (req, res) => {
     // query the database to insert the data into the staff table
     // we use parameters in SQL to protect the data and to reuse the query
     const query = db.query(
-        `INSERT INTO gbComms (username, comment) VALUES ($1, $2)`,
-        // `INSERT INTO gbComms (username, comment) VALUES ($1, $2, $3)`,
-        [newComm.userName, newComm.userComment]
-        // [newComm.userName, newComm.userComment, newComm.date]
+        // `INSERT INTO gbComms (username, comment) VALUES ($1, $2)`,
+        `INSERT INTO gbComms (username, comment, date) VALUES ($1, $2, $3)`,
+        // [newComm.userName, newComm.userComment]
+        [newComm.userName, newComm.userComment, newComm.date]
     );
     res.json({ status: "success", values: newComm });
 });
