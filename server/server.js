@@ -15,7 +15,7 @@ app.listen(PORT, () => {
 // });
 
 // Create data using form values from client, send to database
-app.post("/comments", (req, res) => { // TODO: RENDER CLIENT URL ????
+app.post("/comments", (req, res) => {
     // receive the data from the client
     const newComm = req.body.formValues;
     console.log(newComm);
@@ -26,4 +26,10 @@ app.post("/comments", (req, res) => { // TODO: RENDER CLIENT URL ????
         [newComm.userName, newComm.userComment]
     );
     res.json({ status: "success", values: newComm });
+});
+
+// TODO: GET DATA FROM DATABASE, SEND TO CLIENT
+app.get("/comments", async function (req, res) {
+  const comments = await db.query("SELECT * FROM gbComms");
+  res.json(comments.rows);
 });
