@@ -14,9 +14,9 @@ app.listen(PORT, () => {
 app.post("/comments", (req, res) => {
     // receive data from client
     const newComm = req.body.formValues;
-    console.log(newComm);
-    // query the database to insert the data into the staff table
-    // we use parameters in SQL to protect the data and to reuse the query
+    // console.log(newComm);
+    // query database --> insert data into table
+    // use parameters in SQL to protect the data and reuse the query
     const query = db.query(
         `INSERT INTO gbComms (username, comment, date) VALUES ($1, $2, $3)`,
         [newComm.userName, newComm.userComment, newComm.date]
@@ -24,7 +24,7 @@ app.post("/comments", (req, res) => {
     res.json({ status: "success", values: newComm });
 });
 
-// TODO: GET DATA FROM DATABASE, SEND TO CLIENT
+// todo: get data from database, send to client
 app.get("/comments", async function (req, res) {
     const comments = await db.query("SELECT * FROM gbComms");
     res.json(comments.rows);

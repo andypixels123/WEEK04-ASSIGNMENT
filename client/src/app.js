@@ -30,7 +30,7 @@ function guestBook(e) {
     },
     body: JSON.stringify({ formValues }),
   });
-  console.log("success 1");
+  // console.log("success 1");
 }
 
 // Get API DATA here
@@ -39,7 +39,7 @@ async function getData() { // create 'comments' elements from API object
   // const response = await fetch("https://week04-assignment-2p2p.onrender.com/comments");
   const response = await fetch("http://localhost:8080/comments");
   const json = await response.json();
-  console.log("JSON Data:", json); // check data
+  // console.log("JSON Data:", json); // check data
 
   let i = json.length - 1;
   while (i >= 0) {
@@ -50,7 +50,7 @@ async function getData() { // create 'comments' elements from API object
     let commDate = json[i].date;
     commWrap.className = "comment";
     // commWrap.innerHTML = `<h3>${commName}</h3><p>${commText}</p>`;
-    commWrap.innerHTML = `<h3>${commName}</h3><p>${commText}</p><p>Comment ${commId} - ${commDate}</p>`;
+    commWrap.innerHTML = `<h3>${commName}</h3><p>${commText}</p><p>${commDate} / #${commId}</p>`;
     gbkComm.appendChild(commWrap);
     i--;
   }
@@ -63,7 +63,7 @@ function reLoad() {
 }
 
 function scrollFunction() { // show / hide 'top' button
-  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+  if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
     topBtn.style.display = "block";
   } else {
     topBtn.style.display = "none";

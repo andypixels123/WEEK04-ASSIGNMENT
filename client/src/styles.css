@@ -4,6 +4,11 @@
    box-sizing: border-box;
    text-decoration: none;
    line-height: 1;
+   cursor: default;
+ }
+
+ button, a {
+  cursor: pointer;
  }
 
  html {
@@ -28,7 +33,7 @@
 
  h2 {
    font-size: 2.8rem;
-   margin: 0 0 5% 0;
+   margin: 60px 0 30px 0;
  }
 
  h1,
@@ -49,35 +54,35 @@
    padding: 10px;
  }
 
- section {
-   padding: 0 5% 10% 5%;
- }
-
- #guestbookComms {
-   margin: auto;
+ section,
+ form {
+   padding: 0 5% 0 5%;
  }
 
  .comment {
-   width: 100%;
    background-color: #dcdcdc;
    padding: 1em;
    border-radius: 12px;
    border: 3px solid silver;
  }
 
+ .comment p:last-of-type {
+  text-align: right;
+ }
+
  form,
  .comment,
  #guestbookComms {
-   max-width: 800px;
- }
-
- form,
- .comment {
-   margin: 16px auto 0 auto;
+   max-width: 900px;
+   margin: 20px auto 0 auto;
  }
 
  form {
-   margin-top: 0;
+   margin-bottom: 8%;
+ }
+
+ #guestbookComms {
+   margin-bottom: 10%;
  }
 
  input,
@@ -89,11 +94,13 @@
 
  input,
  textarea {
-   margin: 16px 0 16px 0;
+   margin: 12px 0 20px 0;
  }
 
  button {
-   padding: 15px 30px;
+   display: block;
+   margin: auto;
+   padding: 15px 50px;
  }
 
  /* STYLES BELOW FROM WEEK 1 ASSIGNMENT,
@@ -192,7 +199,6 @@
    outline: none;
    background-color: red;
    color: white;
-   cursor: pointer;
    padding: 15px 25px;
    border-radius: 10px;
  }
