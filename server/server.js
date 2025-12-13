@@ -34,7 +34,6 @@ app.get("/comments", async function (req, res) {
 app.post("/likes", (req, res) => {
     const newLike = req.body.commLikes;
     const query = db.query(
-        `UPDATE gbComms SET likes = $1 WHERE id = $2`, [newLike.like, newLike.id]
-        // const q1 = t.none('UPDATE users SET active = $1 WHERE id = $2', [true, 123]);
+        `UPDATE gbComms SET likes = $1 WHERE id = $2`, [newLike.like, newLike.idx]
     );
 });

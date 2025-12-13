@@ -40,13 +40,12 @@ async function getData() { // create 'comments' elements from API object
   // const response = await fetch("https://week04-assignment-2p2p.onrender.com/comments");
   const response = await fetch("http://localhost:8080/comments");
   const json = await response.json();
-  console.log("JSON Data:", json); // check data
+  // console.log("JSON Data:", json); // check data
 
   let i = json.length - 1;
-  // console.log(i);
-  while (i >= 0) { // create comments HTML
-    console.log(i);
 
+  while (i >= 0) { // create comments HTML
+    // might change 'id' to 'identity' in db
     let commId = json[i].id;
     let commName = json[i].username;
     let commText = json[i].comment;
@@ -64,23 +63,27 @@ async function getData() { // create 'comments' elements from API object
     const pElem2 = document.createElement("p");
     pElem2.textContent = `${commDate} / #${commId}`;
     commWrap.appendChild(pElem2);
-    // console.log(likeCount);
     const likeIcon = document.createElement("img");
-    // likeIcon.id = `like${commId}`;
     likeIcon.src = "./src/images/like-icon.png";
     likeIcon.alt = "round heart icon";
     likeIcon.title = "click";
+
+    const pElem3 = document.createElement("p");
+    pElem3.textContent = likeCount;
+    commWrap.appendChild(pElem3);
+    
     commWrap.appendChild(likeIcon);
     gbkComm.appendChild(commWrap);
-    // commWrap.innerHTML = `<h3>${commName}</h3><p>${commText}</p><p>${commDate} / #${commId}</p>`;
 
     likeIcon.addEventListener("click", () => {
+
       likeCount = parseInt(likeCount);
-      console.log(commId);
       likeCount++;
-      console.log(`like++ ${likeCount}`);
+
+            pElem3.innerText = likeCount;
+
       let commLikes = {
-        id: commId,
+        idx: commId,
         like: likeCount
       }
 
@@ -93,7 +96,9 @@ async function getData() { // create 'comments' elements from API object
         body: JSON.stringify({ commLikes }),
       });
     });
+
     i--;
+
   }
 }
 
@@ -117,6 +122,6 @@ reload.addEventListener("click", reLoad);
 
 
 // todo: clear input fields when form is submitted --- DONE
-// todo: add 'like' counters??
+// todo: add 'like' counters?? --- DONE
 // todo: add date to comment --- DONE
 // todo: add clear form button?
