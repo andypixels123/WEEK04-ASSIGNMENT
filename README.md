@@ -139,3 +139,11 @@ Optional
 
 REFERENCES
 -----------------------------------------------------------
+W3 SCHOOLS 
+    currentTarget Event Property
+    SQL tutorial examples
+
+
+ERROR sometimes occurred with localhost when clicking like icon 
+----------------------------------------------------------------
+    Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:8080/likes. (Reason: CORS request did not succeed). Status code: (null).

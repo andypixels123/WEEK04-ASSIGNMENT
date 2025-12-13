@@ -7,7 +7,7 @@
    cursor: default;
  }
 
- button, a {
+ button, a, .comment img {
   cursor: pointer;
  }
 
@@ -68,6 +68,13 @@
 
  .comment p:last-of-type {
   text-align: right;
+ }
+
+ .comment img {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
  }
 
  form,
