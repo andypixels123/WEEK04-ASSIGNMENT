@@ -22,7 +22,7 @@ app.post("/comments", (req, res) => {
 
 // todo: get data from database, send to client
 app.get("/comments", async function (req, res) {
-    const comments = await db.query("SELECT * FROM gbComms ORDER BY id");
+    const comments = await db.query("SELECT * FROM gbComms ORDER BY idx");
     res.json(comments.rows);
 });
 
@@ -30,7 +30,7 @@ app.get("/comments", async function (req, res) {
 app.post("/likes", (req, res) => {
     const newLike = req.body.commLikes;
     const query = db.query(
-        `UPDATE gbComms SET likes = $1 WHERE id = $2`, [newLike.likeQty, newLike.likeId]
+        `UPDATE gbComms SET likes = $1 WHERE idx = $2`, [newLike.likeQty, newLike.likeId]
     );
     res.json({ status: "success", values: newLike });
 });

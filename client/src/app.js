@@ -24,14 +24,14 @@ function guestBook(e) {
   // POST FORM DATA TO SERVER
   // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
   // fetch("http://localhost:8080/comments", {
-  fetch("https://week04-assignment-2p2p.onrender.com/comments/", {
+  fetch("https://week04-assignment-2p2p.onrender.com/comments", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({ formValues })
   });
-  console.log("success 1");
+  // console.log("success 1");
 }
 
 // Get API DATA here
@@ -40,7 +40,7 @@ async function getData() {// create 'comments' elements from API object
 
   // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
   // const response = await fetch("http://localhost:8080/comments");
-  const response = await fetch("https://week04-assignment-2p2p.onrender.com/comments/");
+  const response = await fetch("https://week04-assignment-2p2p.onrender.com/comments");
   // TODO: FIX ERROR HERE!!!
   const commData = await response.json();// json() convert string to JS object
   // console.log("JS object:", commData);// check data
@@ -48,7 +48,7 @@ async function getData() {// create 'comments' elements from API object
   let i = commData.length - 1;
 
   while (i >= 0) {// create comments HTML
-    let commId = commData[i].id;// rename db column idx?
+    let commId = commData[i].idx;// rename db column idx?
     let commName = commData[i].username;
     let commText = commData[i].comment;
     let commDate = commData[i].date;
@@ -94,17 +94,17 @@ async function getData() {// create 'comments' elements from API object
         "likeId": commId,
         "likeQty": likeCount
       };
-
+      
       // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
       // fetch("http://localhost:8080/likes", {
-      fetch("https://week04-assignment-2p2p.onrender.com/likes/", {
+      fetch("https://week04-assignment-2p2p.onrender.com/likes", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({ commLikes })
       });
-      console.log("success 2");
+      // console.log("success 2");
     });
 
     i--;
