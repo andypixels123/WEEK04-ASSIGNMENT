@@ -36,4 +36,5 @@ app.post("/likes", (req, res) => {
     const query = db.query(
         `UPDATE gbComms SET likes = $1 WHERE id = $2`, [newLike.likeQty, newLike.likeId]
     );
+    res.json({ status: "success", values: newLike });
 });
