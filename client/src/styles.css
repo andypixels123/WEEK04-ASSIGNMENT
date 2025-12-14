@@ -7,8 +7,10 @@
    cursor: default;
  }
 
- button, a, .comment img {
-  cursor: pointer;
+ button,
+ a,
+ article img {
+   cursor: pointer;
  }
 
  html {
@@ -54,31 +56,47 @@
    padding: 10px;
  }
 
+ .round {
+   border-radius: 12px;
+ }
+
  section,
  form {
    padding: 0 5% 0 5%;
  }
 
- .comment {
+ article,
+ article div,
+ span {
+   display: flex;
+ }
+
+ article {
+   flex-direction: column;
    background-color: #dcdcdc;
-   padding: 1em;
+   padding: 2em;
    border-radius: 12px;
    border: 3px solid silver;
  }
 
- .comment p:last-of-type {
-  text-align: right;
+ article div {
+   padding-top: 1.8em;
+   flex-direction: row;
+   justify-content: space-between;
  }
 
- .comment img {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+ span {
+   align-items: center;
+ }
+
+ article img {
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
  }
 
  form,
- .comment,
+ article,
  #guestbookComms {
    max-width: 900px;
    margin: 20px auto 0 auto;
@@ -109,6 +127,7 @@
    margin: auto;
    padding: 15px 50px;
  }
+
 
  /* STYLES BELOW FROM WEEK 1 ASSIGNMENT,
      KEEPING DESIGN CONSISTENT */
@@ -187,11 +206,6 @@
  .foot-text {
    margin: 3em 0 2em 0;
  }
-
- .round {
-   border-radius: 12px;
- }
-
 
  /* Button styling from W3 schools, modified slightly */
  /* Added scroll-behaviour: smooth; in css instead of using W3 Schools 'scroll to top' function */

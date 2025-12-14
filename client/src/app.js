@@ -3,7 +3,6 @@ const commForm = document.getElementById("commForm");
 const gbkComm = document.getElementById("guestbookComms");
 const reload = document.getElementById("reload");
 const topBtn = document.getElementById("topBtn");
-const addComm = document.getElementById("addComm");
 const d = new Date();
 const y = d.getFullYear();
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -39,52 +38,59 @@ function guestBook(e) {
 async function getData() { // create 'comments' elements from API object
   // const response = await fetch("https://week04-assignment-2p2p.onrender.com/comments");
   const response = await fetch("http://localhost:8080/comments");
-  const json = await response.json();
-  // console.log("JSON Data:", json); // check data
+  const obj = await response.json(); // create JS object
+  // console.log("JS object:", obj); // check data
 
-  let i = json.length - 1;
+  let i = obj.length - 1;
 
   while (i >= 0) { // create comments HTML
-    // might change 'id' to 'identity' in db
-    let commId = json[i].id;
-    let commName = json[i].username;
-    let commText = json[i].comment;
-    let commDate = json[i].date;
-    let likeCount = json[i].likes;
 
-    const commWrap = document.createElement("div");
-    commWrap.className = "comment";
-    const head3 = document.createElement("h3");
-    head3.textContent = commName;
-    commWrap.appendChild(head3);
-    const pElem1 = document.createElement("p");
-    pElem1.textContent = commText;
-    commWrap.appendChild(pElem1);
-    const pElem2 = document.createElement("p");
-    pElem2.textContent = `${commDate} / #${commId}`;
-    commWrap.appendChild(pElem2);
-    const likeIcon = document.createElement("img");
-    likeIcon.src = "./src/images/like-icon.png";
-    likeIcon.alt = "round heart icon";
-    likeIcon.title = "click";
+    let commId = obj[i].id; // rename db column idx?
+    let commName = obj[i].username;
+    let commText = obj[i].comment;
+    let commDate = obj[i].date;
+    let likeCount = obj[i].likes;
+    // console.log(likeCount);
 
-    const pElem3 = document.createElement("p");
-    pElem3.textContent = likeCount;
-    commWrap.appendChild(pElem3);
-    
-    commWrap.appendChild(likeIcon);
-    gbkComm.appendChild(commWrap);
+    const article = document.createElement("article");
+    const h3 = document.createElement("h3");
+    h3.textContent = commName;
+    article.appendChild(h3);
+    const p1 = document.createElement("p");
+    p1.textContent = commText;
+    article.appendChild(p1);
+    const div1 = document.createElement("div");
+    const span = document.createElement("span");
+    const icon = document.createElement("img");
+    icon.src = "./src/images/like-icon.png";
+    icon.alt = "round heart icon";
+    icon.title = "click";
+    span.appendChild(icon);
+    const p2 = document.createElement("p");
+    p2.textContent = likeCount;
+    span.appendChild(p2);
+    div1.appendChild(span);
+    const p3 = document.createElement("p");
+    p3.textContent = `${commDate} / #${commId}`;
+    div1.appendChild(p3);
+    article.appendChild(div1);
+    gbkComm.appendChild(article);
 
-    likeIcon.addEventListener("click", () => {
+    icon.addEventListener("click", () => {
 
-      likeCount = parseInt(likeCount);
+      // if(typeof likeCount === "number") {
+      //   console.log("like count is a number");        
+      // } else {
+      //   console.log("like count is not a number");    
+      //   likeCount = parseInt(likeCount, 10);
+      // }
+
       likeCount++;
-
-            pElem3.innerText = likeCount;
+      p2.innerText = likeCount; // show likes on page
 
       let commLikes = {
-        idx: commId,
-        like: likeCount
+        likeId: commId,
+        likeQty: likeCount
       }
 
       fetch("http://localhost:8080/likes", { // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
@@ -98,7 +104,6 @@ async function getData() { // create 'comments' elements from API object
     });
 
     i--;
-
   }
 }
 
@@ -124,4 +129,4 @@ reload.addEventListener("click", reLoad);
 // todo: clear input fields when form is submitted --- DONE
 // todo: add 'like' counters?? --- DONE
 // todo: add date to comment --- DONE
-// todo: add clear form button?
+// todo: add clear form button??
