@@ -26,7 +26,7 @@ app.get("/comments", async function (req, res) {
     res.json(comments.rows);
 });
 
-// todo: test =========================================
+// todo: update database with new like count
 app.post("/likes", (req, res) => {
     const newLike = req.body.commLikes;
     const query = db.query(

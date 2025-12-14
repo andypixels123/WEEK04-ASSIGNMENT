@@ -24,8 +24,7 @@ function guestBook(e) {
   // POST FORM DATA TO SERVER
   // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
   // fetch("http://localhost:8080/comments", {
-  fetch("https://week04-assignment-2p2p.onrender.com/comments", {
-
+  fetch("https://week04-assignment-2p2p.onrender.com/comments/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -37,20 +36,19 @@ function guestBook(e) {
 
 // Get API DATA here
 // Application Programming Interface
-async function getData() { // create 'comments' elements from API object
+async function getData() {// create 'comments' elements from API object
 
   // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
   // const response = await fetch("http://localhost:8080/comments");
-  const response = await fetch("https://week04-assignment-2p2p.onrender.com/comments");
+  const response = await fetch("https://week04-assignment-2p2p.onrender.com/comments/");
   // TODO: FIX ERROR HERE!!!
-  const commData = await response.json(); // json() convert string to JS object
-  // console.log("JS object:", commData); // check data
+  const commData = await response.json();// json() convert string to JS object
+  // console.log("JS object:", commData);// check data
 
   let i = commData.length - 1;
 
-  while (i >= 0) { // create comments HTML
-
-    let commId = commData[i].id; // rename db column idx?
+  while (i >= 0) {// create comments HTML
+    let commId = commData[i].id;// rename db column idx?
     let commName = commData[i].username;
     let commText = commData[i].comment;
     let commDate = commData[i].date;
@@ -82,26 +80,24 @@ async function getData() { // create 'comments' elements from API object
     gbkComm.appendChild(article);
 
     icon.addEventListener("click", () => {
-
+      // test for number
       // if(typeof likeCount === "number") {
       //   console.log("like count is a number");        
       // } else {
       //   console.log("like count is not a number");    
       //   likeCount = parseInt(likeCount, 10);
       // }
-
       likeCount++;
-      p2.innerText = likeCount; // show likes on page
+      p2.innerText = likeCount;// show likes on page
 
       let commLikes = {
-        likeId: commId,
-        likeQty: likeCount
+        "likeId": commId,
+        "likeQty": likeCount
       };
 
       // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
       // fetch("http://localhost:8080/likes", {
-      fetch("https://week04-assignment-2p2p.onrender.com/likes", {
-
+      fetch("https://week04-assignment-2p2p.onrender.com/likes/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -121,8 +117,7 @@ function reLoad() {
   location.reload();
 }
 
-function scrollFunction() { // show / hide 'top' button
-
+function scrollFunction() {// show / hide 'top' button
   if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
     topBtn.style.display = "block";
   } else {
