@@ -135,15 +135,40 @@ Optional
     What useful external sources helped you complete the assignment (e.g Youtube tutorials)?
     What errors or bugs did you encounter while completing your assignment? How did you solve them?
     What went really well and what could have gone better?
+
+
+MY REFLECTION
+-----------------------------------------------------------
+
+    I have created a working HTML form which is submitting data into the database. I have also added a 'date' and 'like count' to the database table which are both in use.
+
+    The project is responsive and can be used on mobile devices. I made use of my week 1 assignment for the page layout and incorporated the guestbook code into a duplicate of this page.
+
+    I am using two media queries which were part of the week 1 assignment. The new HTML code I wrote for the comments section and form is based on % widths and flexbox layout for responsiveness. 
+
+    I have a working GET API route in the server and a working POST API route in the client.
+    I seeded my database with ‘dummy’ data that was created using Google AI. Some commands were typed into the Supabase query editor. The seed file is included in my project and also some SQL commands that I typed. (seed.js, sqlQueries.sql).
+    I have also included screenshots from the Supabase SQL editor and Database Schema in the 'images' folder for the project.
+
+    I have achieved at least one stretch goal by adding a like count button on each comment, also by adding the 'required' attribute to input fields as some form of validation. I am able to add a delete button to each comment, (by using remove()). Unfortunately, time constraints meant that this was not possible as it took quite a long time to implement the 'likes' feature.
+
+    The following ERROR sometimes occurred within localhost when clicking the like icon
+
+    Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:8080/likes. (Reason: CORS request did not succeed). Status code: (null).
+
+    I modified some of my code and the error has disappeared, but not sure what the cause was.
     
 
 REFERENCES
 -----------------------------------------------------------
 W3 SCHOOLS 
-    currentTarget Event Property
     SQL tutorial examples
+    typeof() to check if like count was a number before incrementing.
 
+StackOverflow
+    example of UPDATE in database, used for like count.
 
-ERROR sometimes occurred within localhost when clicking like icon 
-------------------------------------------------------------------
-    Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:8080/likes. (Reason: CORS request did not succeed). Status code: (null).
+Course workshop code
+    how to create and use, seed.js
+    app.get()
+    app.post()
