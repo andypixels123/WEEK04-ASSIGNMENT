@@ -12,7 +12,7 @@ function guestBook(e) {
   e.preventDefault();
   const formDataTemplate = new FormData(commForm);
   let formValues = Object.fromEntries(formDataTemplate);
- // formValues.date = `${m} ${y}`;
+  formValues.date = `${m} ${y}`;
   // console.log(`form values - ${formValues}`);
   commForm.reset();// clear form
 
@@ -22,9 +22,10 @@ function guestBook(e) {
   // use fetch to connect client with server
 
   // POST FORM DATA TO SERVER
-  // fetch("http://localhost:8080/comments", { // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
-  // fetch("https://week04-assignment-2p2p.onrender.com/comments", {
-  fetch("https://week04-assignment-2p2p.onrender.com", {
+  // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
+  // fetch("http://localhost:8080/comments", {
+  fetch("https://week04-assignment-2p2p.onrender.com/comments", {
+
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -46,11 +47,12 @@ function guestBook(e) {
 // Get API DATA here
 // Application Programming Interface
 async function getData() { // create 'comments' elements from API object
-  // const response = await fetch("https://week04-assignment-2p2p.onrender.com/comments");
-  const response = await fetch("https://week04-assignment-2p2p.onrender.com");
+
+  // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
   // const response = await fetch("http://localhost:8080/comments");
-  const obj = await response.json(); // create JS object
-  console.log("JS object:", obj); // check data
+  const resp = await fetch("https://week04-assignment-2p2p.onrender.com/comments");
+  const obj = await resp.json(); // create JS object
+  // console.log("JS object:", obj); // check data
 
   let i = obj.length - 1;
 
@@ -102,11 +104,12 @@ async function getData() { // create 'comments' elements from API object
       let commLikes = {
         likeId: commId,
         likeQty: likeCount
-      }
+      };
 
-      // fetch("http://localhost:8080/likes", { // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
+      // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
+      // fetch("http://localhost:8080/likes", {
       fetch("https://week04-assignment-2p2p.onrender.com/likes", {
-      // fetch("https://week04-assignment-2p2p.onrender.com", {
+
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -127,6 +130,7 @@ function reLoad() {
 }
 
 function scrollFunction() { // show / hide 'top' button
+
   if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
     topBtn.style.display = "block";
   } else {
