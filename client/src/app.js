@@ -12,7 +12,7 @@ function guestBook(e) {
   e.preventDefault();
   const formDataTemplate = new FormData(commForm);
   let formValues = Object.fromEntries(formDataTemplate);
-  formValues.date = `${m} ${y}`;
+ // formValues.date = `${m} ${y}`;
   // console.log(`form values - ${formValues}`);
   commForm.reset();// clear form
 
@@ -23,8 +23,8 @@ function guestBook(e) {
 
   // POST FORM DATA TO SERVER
   // fetch("http://localhost:8080/comments", { // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
-  fetch("https://week04-assignment-2p2p.onrender.com/comments", {
-  // fetch("https://week04-assignment-2p2p.onrender.com", {
+  // fetch("https://week04-assignment-2p2p.onrender.com/comments", {
+  fetch("https://week04-assignment-2p2p.onrender.com", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -46,8 +46,8 @@ function guestBook(e) {
 // Get API DATA here
 // Application Programming Interface
 async function getData() { // create 'comments' elements from API object
-  const response = await fetch("https://week04-assignment-2p2p.onrender.com/comments");
-  // const response = await fetch("https://week04-assignment-2p2p.onrender.com");
+  // const response = await fetch("https://week04-assignment-2p2p.onrender.com/comments");
+  const response = await fetch("https://week04-assignment-2p2p.onrender.com");
   // const response = await fetch("http://localhost:8080/comments");
   const obj = await response.json(); // create JS object
   console.log("JS object:", obj); // check data
