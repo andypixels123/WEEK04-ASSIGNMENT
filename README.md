@@ -150,7 +150,7 @@ MY REFLECTION
     I seeded my database with ‘dummy’ data that was created using Google AI. Some commands were typed into the Supabase query editor. The seed file is included in my project and also some SQL commands that I typed. (seed.js, sqlQueries.sql).
     I have also included screenshots from the Supabase SQL editor and Database Schema in the 'images' folder for the project.
 
-    I have achieved at least one stretch goal by adding a like count button on each comment, also by adding the 'required' attribute to input fields as some form of validation. I am able to add a delete button to each comment, (by using remove()). Unfortunately, time constraints meant that this was not possible as it took quite a long time to implement the 'likes' feature.
+    I have achieved at least one stretch goal by adding a like count button on each comment, also by adding the 'required' attribute to input fields as some form of validation. I am able to add a delete button to each comment, (using remove(); and SQL - `DELETE FROM gbComms WHERE username = $1`, [] ). Unfortunately, time constraints meant that this was not possible as it took some time to implement the 'likes' feature.
 
     The following ERROR sometimes occurred within localhost when clicking the like icon
 

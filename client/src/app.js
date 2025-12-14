@@ -22,8 +22,8 @@ function guestBook(e) {
   // use fetch to connect client with server
 
   // POST FORM DATA TO SERVER
-  fetch("http://localhost:8080/comments", { // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
-    // fetch("https://week04-assignment-2p2p.onrender.com/comments", {
+  // fetch("http://localhost:8080/comments", { // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
+    fetch("https://week04-assignment-2p2p.onrender.com/comments", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -36,8 +36,8 @@ function guestBook(e) {
 // Get API DATA here
 // Application Programming Interface
 async function getData() { // create 'comments' elements from API object
-  // const response = await fetch("https://week04-assignment-2p2p.onrender.com/comments");
-  const response = await fetch("http://localhost:8080/comments");
+  const response = await fetch("https://week04-assignment-2p2p.onrender.com/comments");
+  // const response = await fetch("http://localhost:8080/comments");
   const obj = await response.json(); // create JS object
   // console.log("JS object:", obj); // check data
 
@@ -93,8 +93,8 @@ async function getData() { // create 'comments' elements from API object
         likeQty: likeCount
       }
 
-      fetch("http://localhost:8080/likes", { // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
-        // fetch("https://week04-assignment-2p2p.onrender.com/likes", {
+      // fetch("http://localhost:8080/likes", { // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
+        fetch("https://week04-assignment-2p2p.onrender.com/likes", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
