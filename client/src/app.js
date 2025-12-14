@@ -51,18 +51,18 @@ async function getData() { // create 'comments' elements from API object
   // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
   // const response = await fetch("http://localhost:8080/comments");
   const resp = await fetch("https://week04-assignment-2p2p.onrender.com/comments");
-  const obj = await resp.json(); // create JS object
-  // console.log("JS object:", obj); // check data
+  const objEct = await resp.json(); // json() convert string to JS object
+  // console.log("JS object:", objEct); // check data
 
-  let i = obj.length - 1;
+  let i = objEct.length - 1;
 
   while (i >= 0) { // create comments HTML
 
-    let commId = obj[i].id; // rename db column idx?
-    let commName = obj[i].username;
-    let commText = obj[i].comment;
-    let commDate = obj[i].date;
-    let likeCount = obj[i].likes;
+    let commId = objEct[i].id; // rename db column idx?
+    let commName = objEct[i].username;
+    let commText = objEct[i].comment;
+    let commDate = objEct[i].date;
+    let likeCount = objEct[i].likes;
     // console.log(likeCount);
 
     const article = document.createElement("article");
