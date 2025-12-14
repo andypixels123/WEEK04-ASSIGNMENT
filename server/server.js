@@ -6,8 +6,6 @@ app.use(cors());
 app.use(express.json());
 const PORT = 8080;
 
-
-
 // create data using formValues from client, send to database
 app.post("/comments", (req, res) => {
     // receive data from client
@@ -36,16 +34,6 @@ app.post("/likes", (req, res) => {
     );
     res.json({ status: "success", values: newLike });
 });
-
-
-// app.use(express.json()); // ensure this is present so the server can understand JSON data
-
-// app.post("/messages", express.json(), (req, res) => {
-//   console.log("req.body", req.body);
-//   res.json({ status: "Message received!" });
-// });
-
-// ... app.listen goes here
 
 app.listen(PORT, () => {
     console.info(`Server running, port ${PORT}`);

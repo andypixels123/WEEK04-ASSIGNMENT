@@ -157,6 +157,8 @@ MY REFLECTION
     Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:8080/likes. (Reason: CORS request did not succeed). Status code: (null).
 
     I modified some of my code and the error has disappeared, but not sure what the cause was.
+
+    I have deployed the project on Render and modified url's in app.js from localhost to render url ( server ). Since doing this, the app. is unable to retrieve/process data from Supabase. Everything works as it should on localhost without any problems. I checked the code and made some changes but the problem still exists... please provide feedback on why it's not working, unless I can find a fix in the meantime.
     
 
 REFERENCES

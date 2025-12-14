@@ -27,12 +27,21 @@ function guestBook(e) {
   // fetch("https://week04-assignment-2p2p.onrender.com", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json"
     },
-    body: JSON.stringify({ formValues }),
+    body: JSON.stringify({ formValues })
   });
   console.log("success 1");
 }
+
+// const response = await fetch("https://example.org/post", {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+//   body: JSON.stringify({ username: "example" }),
+//   // …
+// });
 
 // Get API DATA here
 // Application Programming Interface
@@ -100,9 +109,9 @@ async function getData() { // create 'comments' elements from API object
       // fetch("https://week04-assignment-2p2p.onrender.com", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
-        body: JSON.stringify({ commLikes }),
+        body: JSON.stringify({ commLikes })
       });
       console.log("success 2");
     });
