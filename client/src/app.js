@@ -23,8 +23,8 @@ function guestBook(e) {
 
   // POST FORM DATA TO SERVER
   // fetch("http://localhost:8080/comments", { // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
-  fetch("https://week04-assignment-2p2p.onrender.com/comments", {
-  // fetch("https://week04-assignment-2p2p.onrender.com", {
+  // fetch("https://week04-assignment-2p2p.onrender.com/comments", {
+  fetch("https://week04-assignment-2p2p.onrender.com", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
