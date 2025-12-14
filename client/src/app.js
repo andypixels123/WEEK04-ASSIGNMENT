@@ -35,34 +35,26 @@ function guestBook(e) {
   console.log("success 1");
 }
 
-// const response = await fetch("https://example.org/post", {
-//   method: "POST",
-//   headers: {
-//     "Content-Type": "application/json",
-//   },
-//   body: JSON.stringify({ username: "example" }),
-//   // …
-// });
-
 // Get API DATA here
 // Application Programming Interface
 async function getData() { // create 'comments' elements from API object
 
   // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
   // const response = await fetch("http://localhost:8080/comments");
-  const resp = await fetch("https://week04-assignment-2p2p.onrender.com/comments");
-  const objEct = await resp.json(); // json() convert string to JS object
-  // console.log("JS object:", objEct); // check data
+  const response = await fetch("https://week04-assignment-2p2p.onrender.com/comments");
+  // TODO: FIX ERROR HERE!!!
+  const commData = await response.json(); // json() convert string to JS object
+  // console.log("JS object:", commData); // check data
 
-  let i = objEct.length - 1;
+  let i = commData.length - 1;
 
   while (i >= 0) { // create comments HTML
 
-    let commId = objEct[i].id; // rename db column idx?
-    let commName = objEct[i].username;
-    let commText = objEct[i].comment;
-    let commDate = objEct[i].date;
-    let likeCount = objEct[i].likes;
+    let commId = commData[i].id; // rename db column idx?
+    let commName = commData[i].username;
+    let commText = commData[i].comment;
+    let commDate = commData[i].date;
+    let likeCount = commData[i].likes;
     // console.log(likeCount);
 
     const article = document.createElement("article");
