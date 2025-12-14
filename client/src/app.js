@@ -23,25 +23,25 @@ function guestBook(e) {
 
   // POST FORM DATA TO SERVER
   // fetch("http://localhost:8080/comments", { // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
-  // fetch("https://week04-assignment-2p2p.onrender.com/comments", {
-  fetch("https://week04-assignment-2p2p.onrender.com", {
+  fetch("https://week04-assignment-2p2p.onrender.com/comments", {
+  // fetch("https://week04-assignment-2p2p.onrender.com", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ formValues }),
   });
-  // console.log("success 1");
+  console.log("success 1");
 }
 
 // Get API DATA here
 // Application Programming Interface
 async function getData() { // create 'comments' elements from API object
-  // const response = await fetch("https://week04-assignment-2p2p.onrender.com/comments");
-  const response = await fetch("https://week04-assignment-2p2p.onrender.com");
+  const response = await fetch("https://week04-assignment-2p2p.onrender.com/comments");
+  // const response = await fetch("https://week04-assignment-2p2p.onrender.com");
   // const response = await fetch("http://localhost:8080/comments");
   const obj = await response.json(); // create JS object
-  // console.log("JS object:", obj); // check data
+  console.log("JS object:", obj); // check data
 
   let i = obj.length - 1;
 
@@ -96,14 +96,15 @@ async function getData() { // create 'comments' elements from API object
       }
 
       // fetch("http://localhost:8080/likes", { // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
-      // fetch("https://week04-assignment-2p2p.onrender.com/likes", {
-      fetch("https://week04-assignment-2p2p.onrender.com", {
+      fetch("https://week04-assignment-2p2p.onrender.com/likes", {
+      // fetch("https://week04-assignment-2p2p.onrender.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ commLikes }),
       });
+      console.log("success 2");
     });
 
     i--;
