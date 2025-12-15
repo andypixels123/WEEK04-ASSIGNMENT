@@ -1,5 +1,5 @@
 // run in terminal / server - node seed.js
-import { db } from "./dbConn.js";
+import {db} from "./dbConn.js";
 // ===== SAMPLE COMMENTS CREATED BY GOOGLE AI =====
 db.query(`INSERT INTO gbComms (username, comment, date) VALUES ($1, $2, $3)`, [
   "Yoga Yogi",

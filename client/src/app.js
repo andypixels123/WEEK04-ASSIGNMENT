@@ -91,8 +91,8 @@ async function getData() {// create 'comments' elements from API object
       p2.innerText = likeCount;// show likes on page
 
       let commLikes = {
-        "likeId": commId,
-        "likeQty": likeCount
+        likeId: commId,
+        likeQty: likeCount
       };
 
       // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
