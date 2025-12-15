@@ -65,7 +65,7 @@ async function getData() {// create 'comments' elements from API object
     const div1 = document.createElement("div");
     const span = document.createElement("span");
     const icon = document.createElement("img");
-    icon.src = "./src/images/like-icon.png";
+    icon.src = "/assets/images/like-icon.png";
     icon.alt = "round heart icon";
     icon.title = "click";
     span.appendChild(icon);
@@ -94,7 +94,7 @@ async function getData() {// create 'comments' elements from API object
         "likeId": commId,
         "likeQty": likeCount
       };
-      
+
       // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
       // fetch("http://localhost:8080/likes", {
       fetch("https://week04-assignment-2p2p.onrender.com/likes", {
