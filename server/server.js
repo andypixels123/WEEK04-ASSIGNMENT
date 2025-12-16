@@ -6,7 +6,7 @@ app.use(cors());
 app.use(express.json());
 const PORT = 8080;
 
-// create data using formValues from client, send to database
+// todo: create data using formValues from client, send to database
 app.post("/comments", (req, res) => {
     // receive data from client
     const newComm = req.body.formValues;

@@ -79,33 +79,35 @@ async function getData() {// create 'comments' elements from API object
     article.appendChild(div1);
     gbkComm.appendChild(article);
 
-    icon.addEventListener("click", () => {
-      // test for number
+    // icon.addEventListener("click", () => {
+
+      // todo: for testing purposes // check likeCount is a number
       // if(typeof likeCount === "number") {
       //   console.log("like count is a number");        
       // } else {
       //   console.log("like count is not a number");    
       //   likeCount = parseInt(likeCount, 10);
       // }
-      likeCount++;
-      p2.innerText = likeCount;// show likes on page
 
-      let commLikes = {
-        likeId: commId,
-        likeQty: likeCount
-      };
+      // likeCount++;
+      // p2.innerText = likeCount;// show likes on page
 
-      // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
-      // fetch("http://localhost:8080/likes", {
-      fetch("https://week04-assignment-2p2p.onrender.com/likes", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ commLikes })
-      });
+      // let commLikes = {
+      //   likeId: commId,
+      //   likeQty: likeCount
+      // };
+
+      // // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
+      // // fetch("http://localhost:8080/likes", {
+      // fetch("https://week04-assignment-2p2p.onrender.com/likes", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json"
+      //   },
+      //   body: JSON.stringify({ commLikes })
+      // });
       // console.log("success 2");
-    });
+    // });
 
     i--;
   }
