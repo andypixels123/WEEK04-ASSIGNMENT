@@ -28,10 +28,8 @@ function guestBook(e) {
 
   try {
 
-    // fetch("http://localhost:8080/comments", {
-    // fetch("https://week04-assignment-2p2p.onrender.com/comments", {
-    fetch("https://week04-assignment-1-j3wt.onrender.com/comments", {
-    // https://week04-assignment-1-j3wt.onrender.com
+    // fetch("http://localhost:8080/comments", {// localhost
+    fetch("https://week04-assignment-1-j3wt.onrender.com/comments", {// mk2
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -58,10 +56,8 @@ async function getData() {// create 'comments' elements from API object
   try {
 
     // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
-    // const response = await fetch("http://localhost:8080/comments");
-    // const response = await fetch("https://week04-assignment-2p2p.onrender.com/comments");
-    const response = await fetch("https://week04-assignment-1-j3wt.onrender.com/comments");
-    // https://week04-assignment-1-j3wt.onrender.com
+    // const response = await fetch("http://localhost:8080/comments");// localhost
+    const response = await fetch("https://week04-assignment-1-j3wt.onrender.com/comments");// mk2
     // TODO: FIX ERROR HERE!!!
     const commData = await response.json();// json() convert string to JS object
     // console.log("JS object:", commData);// check data
@@ -127,10 +123,8 @@ async function getData() {// create 'comments' elements from API object
       };
 
       // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
-      // fetch("http://localhost:8080/likes", {
-      // fetch("https://week04-assignment-2p2p.onrender.com/likes", {
-      fetch("https://week04-assignment-1-j3wt.onrender.com/likes", {
-      // https://week04-assignment-1-j3wt.onrender.com
+      // fetch("http://localhost:8080/likes", {//localhost
+      fetch("https://week04-assignment-1-j3wt.onrender.com/likes", {// mk2
         method: "POST",
         headers: {
           "Content-Type": "application/json"
