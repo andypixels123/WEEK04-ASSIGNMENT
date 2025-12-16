@@ -24,16 +24,19 @@ function guestBook(e) {
   // POST FORM DATA TO SERVER
   // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
 
+
+
   try {
 
-    // fetch("http://localhost:8080/comments", {
-    fetch("https://week04-assignment-2p2p.onrender.com/comments", {
+    fetch("http://localhost:8080/comments", {
+    // fetch("https://week04-assignment-2p2p.onrender.com/comments", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({ formValues })
     });
+
 
   } catch (error) {
     console.error(error);
@@ -43,26 +46,26 @@ function guestBook(e) {
   // console.log("success 1");
 }
 
+
+
 // Get API DATA here
 // Application Programming Interface
 async function getData() {// create 'comments' elements from API object
 
 
-try {
-  
-  // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
-  // const response = await fetch("http://localhost:8080/comments");
-  const response = await fetch("https://week04-assignment-2p2p.onrender.com/comments");
-  // TODO: FIX ERROR HERE!!!
-  const commData = await response.json();// json() convert string to JS object
-  // console.log("JS object:", commData);// check data
+  try {
 
-    } catch (error) {
-  console.error(error);
-  // Expected output: ReferenceError: nonExistentFunction is not defined
-  // (Note: the exact output may be browser-dependent)
-}
+    // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
+    const response = await fetch("http://localhost:8080/comments");
+    // const response = await fetch("https://week04-assignment-2p2p.onrender.com/comments");
+    // TODO: FIX ERROR HERE!!!
+    const commData = await response.json();// json() convert string to JS object
+    // console.log("JS object:", commData);// check data
 
+  } catch (error) {
+    console.error(error);
+    // Note: the exact output may be browser-dependent
+  }
 
 
 
@@ -100,35 +103,36 @@ try {
     article.appendChild(div1);
     gbkComm.appendChild(article);
 
-    // icon.addEventListener("click", () => {
+    icon.addEventListener("click", () => {
 
-    // todo: for testing purposes // check likeCount is a number
-    // if(typeof likeCount === "number") {
-    //   console.log("like count is a number");        
-    // } else {
-    //   console.log("like count is not a number");    
-    //   likeCount = parseInt(likeCount, 10);
-    // }
+      // todo: for testing purposes // check likeCount is a number
+      // if(typeof likeCount === "number") {
+      //   console.log("like count is a number");        
+      // } else {
+      //   console.log("like count is not a number");    
+      //   likeCount = parseInt(likeCount, 10);
+      // }
+      // todo: end
 
-    // likeCount++;
-    // p2.innerText = likeCount;// show likes on page
+      likeCount++;
+      p2.innerText = likeCount;// show likes on page
 
-    // let commLikes = {
-    //   likeId: commId,
-    //   likeQty: likeCount
-    // };
+      let commLikes = {
+        likeId: commId,
+        likeQty: likeCount
+      };
 
-    // // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
-    // // fetch("http://localhost:8080/likes", {
-    // fetch("https://week04-assignment-2p2p.onrender.com/likes", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: JSON.stringify({ commLikes })
-    // });
-    // console.log("success 2");
-    // });
+      // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
+      fetch("http://localhost:8080/likes", {
+      // fetch("https://week04-assignment-2p2p.onrender.com/likes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ commLikes })
+      });
+      console.log("success 2");
+    });
 
     i--;
   }
