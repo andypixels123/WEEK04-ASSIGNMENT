@@ -1,5 +1,9 @@
 
 Build a Full-Stack Guestbook
+----------------------------------------------------------------------------------------
+==========  PROJECT IS LIVE AT https://week04-assignment-2-7gn6.onrender.com  ==========
+----------------------------------------------------------------------------------------
+
 Overview
 
 This week you’ve been learning about clients and servers, and most importantly, how to get them to communicate with each other. In it’s most simple sense, a server hosts/collects data that the client will then display. You’ve been learning about the fundamentals of CRUD applications, which are a major part of being a web developer.
