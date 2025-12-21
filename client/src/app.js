@@ -24,19 +24,16 @@ function guestBook(e) {
   // POST FORM DATA TO SERVER
   // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
 
-
-
   try {
 
-    // fetch("http://localhost:8080/comments", {// localhost
-    fetch("https://week04-assignment-1-j3wt.onrender.com/comments", {// mk2
+    // fetch("http://localhost:8080/addcomms", {// localhost
+      fetch("https://week04-assignment-1-j3wt.onrender.com/addcomms", {// mk2
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({ formValues })
     });
-
 
   } catch (error) {
     console.error(error);
@@ -46,32 +43,23 @@ function guestBook(e) {
   // console.log("success 1");
 }
 
-
-
 // Get API DATA here
 // Application Programming Interface
 async function getData() {// create 'comments' elements from API object
 
-
   try {
 
     // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
-    // const response = await fetch("http://localhost:8080/comments");// localhost
-    const response = await fetch("https://week04-assignment-1-j3wt.onrender.com/comments");// mk2
+    // const response = await fetch("http://localhost:8080/getcomms");// localhost
+    const response = await fetch("https://week04-assignment-1-j3wt.onrender.com/getcomms");// mk2
     // TODO: FIX ERROR HERE!!!
     const commData = await response.json();// json() convert string to JS object
-    // console.log("JS object:", commData);// check data
+    console.log("JS object:", commData);// check data
+    let i = commData.length - 1;
+    // console.log(i);
+    console.log(`Loop Length is - ${i}`);
 
-  } catch (error) {
-    console.error(error);
-    // Note: the exact output may be browser-dependent
-  }
-
-
-
-  let i = commData.length - 1;
-
-  while (i >= 0) {// create comments HTML
+    while (i >= 0) {// create comments HTML
     let commId = commData[i].idx;// rename db column idx?
     let commName = commData[i].username;
     let commText = commData[i].comment;
@@ -124,7 +112,7 @@ async function getData() {// create 'comments' elements from API object
 
       // TODO: CHANGE TO RENDER 'SERVER URL' WHEN DEPLOYED
       // fetch("http://localhost:8080/likes", {//localhost
-      fetch("https://week04-assignment-1-j3wt.onrender.com/likes", {// mk2
+        fetch("https://week04-assignment-1-j3wt.onrender.com/likes", {// mk2
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -135,6 +123,11 @@ async function getData() {// create 'comments' elements from API object
     });
 
     i--;
+  }
+
+  } catch (error) {
+    console.error(error);
+    // Note: the exact output may be browser-dependent
   }
 }
 

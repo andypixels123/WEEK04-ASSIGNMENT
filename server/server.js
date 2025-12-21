@@ -7,7 +7,7 @@ app.use(express.json());
 const PORT = 8080;
 
 // todo: create data using formValues from client, send to database
-app.post("/comments", (req, res) => {
+app.post("/addcomms", (req, res) => {
     // receive data from client
     const newComm = req.body.formValues;
     // console.log(newComm);
@@ -21,7 +21,7 @@ app.post("/comments", (req, res) => {
 });
 
 // todo: get data from database, send to client
-app.get("/comments", async function (req, res) {
+app.get("/getcomms", async function (req, res) {
     const comments = await db.query("SELECT * FROM gbComms ORDER BY idx");
     res.json(comments.rows);
 });
